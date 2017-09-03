@@ -1,0 +1,342 @@
+/* BASIC RESPONSIVE GRID SYSTEM (DESKTOP FIRST DUE TO PARTIAL RESPONSIVE SITE)*/
+.ResponsiveImage {
+  overflow: hidden;
+  display: block;
+}
+.ResponsiveImage.ShowBackground {
+  background-size: cover;
+  background: url("/Skin/V2/SiteLayout/site-bg.png") no-repeat center #093973;
+}
+.ResponsiveImage a {
+  display: inline-block;
+}
+.ResponsiveImage > img,
+.ResponsiveImage > a > img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: bottom;
+  display: inline-block;
+}
+.HoverGrow {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.HoverGrow img {
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+}
+.HoverGrow:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.OverlayIcon {
+  position: relative;
+}
+.OverlayIcon span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+}
+.OverlayIcon span.Overlay {
+  background-color: #000000;
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+.OverlayIcon span.Icon {
+  text-transform: none;
+  font-size: 70px;
+  font-family: 'FontAwesome';
+  filter: alpha(opacity=80);
+  -moz-opacity: 0.8;
+  -khtml-opacity: 0.8;
+  opacity: 0.8;
+}
+.OverlayIcon span.Icon:after {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  font-size: 70px;
+  line-height: 70px;
+  height: 70px;
+  margin-top: -35px;
+  margin-left: -35px;
+  -webkit-text-shadow: 0px 0px 30px #000000, 0px 0px 30px #000000;
+  text-shadow: 0px 0px 30px #000000, 0px 0px 30px #000000;
+}
+.OverlayIcon:hover span.Overlay {
+  filter: alpha(opacity=40);
+  -moz-opacity: 0.4;
+  -khtml-opacity: 0.4;
+  opacity: 0.4;
+}
+.OverlayIcon:hover span.Icon {
+  filter: alpha(opacity=100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+}
+.OverlayIcon.VideoIcon span.Icon:after {
+  content: "\f16a";
+}
+.responsive-container {
+  box-sizing: border-box;
+  position: relative;
+  *zoom: 1;
+}
+.responsive-container * {
+  box-sizing: border-box;
+}
+.responsive-container [class*="col-"] {
+  overflow: hidden;
+  float: left;
+  position: relative;
+}
+.responsive-container.rows > [class*="col-"] {
+  margin-bottom: 4px;
+}
+.responsive-container .col-push-right {
+  float: right;
+}
+.responsive-container .item {
+  width: 234px;
+  margin-bottom: 6px;
+}
+.responsive-container .align-content-right {
+  text-align: right;
+}
+.responsive-container .align-content-center {
+  text-align: center;
+}
+.responsive-container .align-content-left {
+  text-align: left;
+}
+.responsive-container .col-wrap {
+  clear: left;
+}
+.responsive-container .col-nowrap {
+  clear: none;
+}
+.responsive-container .col-inline {
+  width: auto;
+}
+.responsive-container .col-1 {
+  width: 8.33%;
+}
+.responsive-container .col-offset-1 {
+  margin-left: 8.33%;
+}
+.responsive-container .col-2 {
+  width: 16.66%;
+}
+.responsive-container .col-offset-2 {
+  margin-left: 16.66%;
+}
+.responsive-container .col-3 {
+  width: 25%;
+}
+.responsive-container .col-4 {
+  width: 33.33%;
+}
+.responsive-container .col-5 {
+  width: 41.66%;
+}
+.responsive-container .col-6 {
+  width: 50%;
+}
+.responsive-container .col-7 {
+  width: 58.33%;
+}
+.responsive-container .col-8 {
+  width: 66.66%;
+}
+.responsive-container .col-9 {
+  width: 75%;
+}
+.responsive-container .col-10 {
+  width: 83.33%;
+}
+.responsive-container .col-11 {
+  width: 91.66%;
+}
+.responsive-container .col-12 {
+  width: 100%;
+}
+@media (max-width: 1024px) {
+  .responsive-container .m-align-content-right {
+    text-align: right;
+  }
+  .responsive-container .m-align-content-center {
+    text-align: center;
+  }
+  .responsive-container .m-align-content-left {
+    text-align: left;
+  }
+  .responsive-container .col-m-wrap {
+    clear: left;
+  }
+  .responsive-container .col-m-nowrap {
+    clear: none;
+  }
+  .responsive-container .col-m-inline {
+    width: auto;
+  }
+  .responsive-container .col-m-1 {
+    width: 8.33%;
+  }
+  .responsive-container .col-m-2 {
+    width: 16.66%;
+  }
+  .responsive-container .col-m-3 {
+    width: 25%;
+  }
+  .responsive-container .col-m-4 {
+    width: 33.33%;
+  }
+  .responsive-container .col-m-5 {
+    width: 41.66%;
+  }
+  .responsive-container .col-m-6 {
+    width: 50%;
+  }
+  .responsive-container .col-m-7 {
+    width: 58.33%;
+  }
+  .responsive-container .col-m-8 {
+    width: 66.66%;
+  }
+  .responsive-container .col-m-9 {
+    width: 75%;
+  }
+  .responsive-container .col-m-10 {
+    width: 83.33%;
+  }
+  .responsive-container .col-m-11 {
+    width: 91.66%;
+  }
+  .responsive-container .col-m-12 {
+    width: 100%;
+  }
+  .responsive-container .hidden-md {
+    display: none !important;
+  }
+}
+@media (max-width: 767px) {
+  .responsive-container .s-align-content-right {
+    text-align: right;
+  }
+  .responsive-container .s-align-content-center {
+    text-align: center;
+  }
+  .responsive-container .s-align-content-left {
+    text-align: left;
+  }
+  .responsive-container .col-s-wrap {
+    clear: left;
+  }
+  .responsive-container .col-s-nowrap {
+    clear: none;
+  }
+  .responsive-container .col-s-inline {
+    width: auto;
+  }
+  .responsive-container .col-s-1 {
+    width: 8.33%;
+  }
+  .responsive-container .col-s-2 {
+    width: 16.66%;
+  }
+  .responsive-container .col-s-3 {
+    width: 25%;
+  }
+  .responsive-container .col-s-4 {
+    width: 33.33%;
+  }
+  .responsive-container .col-s-5 {
+    width: 41.66%;
+  }
+  .responsive-container .col-s-6 {
+    width: 50%;
+  }
+  .responsive-container .col-s-7 {
+    width: 58.33%;
+  }
+  .responsive-container .col-s-8 {
+    width: 66.66%;
+  }
+  .responsive-container .col-s-9 {
+    width: 75%;
+  }
+  .responsive-container .col-s-10 {
+    width: 83.33%;
+  }
+  .responsive-container .col-s-11 {
+    width: 91.66%;
+  }
+  .responsive-container .col-s-12 {
+    width: 100%;
+  }
+  .responsive-container .hidden-sm {
+    display: none !important;
+  }
+}
+.responsive-container.fixed-cells > [class*="col-"] {
+  margin-bottom: 8px;
+  position: relative;
+}
+.responsive-container.fixed-cells > [class*="col-"] > .cell {
+  box-sizing: border-box;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 4px;
+  bottom: 0;
+  left: 4px;
+}
+.responsive-container.fixed-cells > [class*="col-"].row-1 {
+  height: 240px;
+}
+.responsive-container.fixed-cells > [class*="col-"].row-2 {
+  height: 488px;
+}
+.responsive-container.fixed-cells > [class*="col-"].row-inline {
+  height: auto;
+}
+.responsive-container.fixed-cells > [class*="col-"].row-inline > .cell {
+  left: auto;
+  right: auto;
+  bottom: auto;
+  top: auto;
+  position: relative;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+.responsive-container:before,
+.responsive-container:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.responsive-container:after {
+  clear: both;
+}
+.responsive-container .inline-table {
+  float: none;
+  display: inline-table;
+  vertical-align: top;
+}
+/* BASIC RESPONSIVE GRID SYSTEM */

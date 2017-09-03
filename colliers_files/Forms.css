@@ -1,0 +1,900 @@
+.SumoSelect p {
+  margin: 0;
+}
+.SumoSelect {
+  width: 200px;
+}
+.SelectBox {
+  padding: 5px 8px;
+}
+.sumoStopScroll {
+  overflow: hidden;
+}
+/* Filtering style */
+.SumoSelect .hidden {
+  display: none;
+}
+.SumoSelect .search-txt {
+  display: none;
+  outline: none;
+}
+.SumoSelect .no-match {
+  display: none;
+  padding: 6px;
+}
+.SumoSelect.open .search-txt {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 5px 8px;
+  border: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.SumoSelect.open > .search > span,
+.SumoSelect.open > .search > label {
+  visibility: hidden;
+}
+/*this is applied on that hidden select. DO NOT USE display:none; or visiblity:hidden; and Do not override any of these properties. */
+.SelectClass,
+.SumoUnder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  border: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+.SelectClass {
+  z-index: 1;
+}
+.SumoSelect > .optWrapper > .options li.opt label,
+.SumoSelect > .CaptionCont,
+.SumoSelect .select-all > label {
+  user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+}
+.SumoSelect {
+  display: inline-block;
+  position: relative;
+  outline: none;
+}
+.SumoSelect:focus > .CaptionCont,
+.SumoSelect:hover > .CaptionCont,
+.SumoSelect.open > .CaptionCont {
+  box-shadow: 0 0 2px #7799D0;
+  border-color: #7799D0;
+}
+.SumoSelect > .CaptionCont {
+  position: relative;
+  border: 1px solid #A4A4A4;
+  min-height: 14px;
+  background-color: #fff;
+  border-radius: 2px;
+  margin: 0;
+}
+.SumoSelect > .CaptionCont > span {
+  display: block;
+  padding-right: 30px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: default;
+}
+/*placeholder style*/
+.SumoSelect > .CaptionCont > span.placeholder {
+  color: #ccc;
+  font-style: italic;
+}
+.SumoSelect > .CaptionCont > label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 30px;
+}
+.SumoSelect > .CaptionCont > label > i {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMdBhAJ/fwnjwAAAGFJREFUKM9jYBh+gBFKuzEwMKQwMDB8xaOWlYGB4T4DA0MrsuapDAwM//HgNwwMDDbYTJuGQ8MHBgYGJ1xOYGNgYJiBpuEpAwODHSF/siDZ+ISBgcGClEDqZ2Bg8B6CkQsAPRga0cpRtDEAAAAASUVORK5CYII=');
+  background-position: center center;
+  width: 16px;
+  height: 16px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+.SumoSelect > .optWrapper {
+  display: none;
+  z-index: 1000;
+  top: 30px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.11);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.SumoSelect.open > .optWrapper {
+  top: 35px;
+  display: block;
+}
+.SumoSelect.open > .optWrapper.up {
+  top: auto;
+  bottom: 100%;
+  margin-bottom: 5px;
+}
+.SumoSelect > .optWrapper ul {
+  list-style: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+.SumoSelect > .optWrapper > .options {
+  border-radius: 2px;
+  position: relative;
+  /*Set the height of pop up here (only for desktop mode)*/
+  max-height: 250px;
+  /*height*/
+}
+.SumoSelect > .optWrapper > .options li.group.disabled > label {
+  opacity: 0.5;
+}
+.SumoSelect > .optWrapper > .options li ul li.opt {
+  padding-left: 22px;
+}
+.SumoSelect > .optWrapper.multiple > .options li ul li.opt {
+  padding-left: 50px;
+}
+.SumoSelect > .optWrapper.isFloating > .options {
+  max-height: 100%;
+  box-shadow: 0 0 100px #595959;
+}
+.SumoSelect > .optWrapper > .options li.opt {
+  padding: 6px 6px;
+  position: relative;
+  border-bottom: 1px solid #f5f5f5;
+}
+.SumoSelect > .optWrapper > .options > li.opt:first-child {
+  border-radius: 2px 2px 0 0;
+}
+.SumoSelect > .optWrapper > .options > li.opt:last-child {
+  border-radius: 0 0 2px 2px;
+  border-bottom: none;
+}
+.SumoSelect > .optWrapper > .options li.opt:hover {
+  background-color: #E4E4E4;
+}
+.SumoSelect > .optWrapper > .options li.opt.sel {
+  background-color: #a1c0e4;
+  border-bottom: 1px solid #a1c0e4;
+}
+.SumoSelect > .optWrapper > .options li label {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  cursor: pointer;
+}
+.SumoSelect > .optWrapper > .options li span {
+  display: none;
+}
+.SumoSelect > .optWrapper > .options li.group > label {
+  cursor: default;
+  padding: 8px 6px;
+  font-weight: bold;
+}
+/*Floating styles*/
+.SumoSelect > .optWrapper.isFloating {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 90%;
+  bottom: 0;
+  margin: auto;
+  max-height: 90%;
+}
+/*disabled state*/
+.SumoSelect > .optWrapper > .options li.opt.disabled {
+  background-color: inherit;
+  pointer-events: none;
+}
+.SumoSelect > .optWrapper > .options li.opt.disabled * {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  /* IE 5-7 */
+  filter: alpha(opacity=50);
+  /* Netscape */
+  -moz-opacity: 0.5;
+  /* Safari 1.x */
+  -khtml-opacity: 0.5;
+  /* Good browsers */
+  opacity: 0.5;
+}
+/*styling for multiple select*/
+.SumoSelect > .optWrapper.multiple > .options li.opt {
+  padding-left: 35px;
+  cursor: pointer;
+}
+.SumoSelect > .optWrapper.multiple > .options li.opt span,
+.SumoSelect .select-all > span {
+  position: absolute;
+  display: block;
+  width: 30px;
+  top: 0;
+  bottom: 0;
+  margin-left: -35px;
+}
+.SumoSelect > .optWrapper.multiple > .options li.opt span i,
+.SumoSelect .select-all > span i {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #AEAEAE;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+.SumoSelect > .optWrapper > .MultiControls {
+  display: none;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.13);
+  border-radius: 0 0 3px 3px;
+}
+.SumoSelect > .optWrapper.multiple.isFloating > .MultiControls {
+  display: block;
+  margin-top: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.SumoSelect > .optWrapper.multiple.okCancelInMulti > .MultiControls {
+  display: block;
+}
+.SumoSelect > .optWrapper.multiple.okCancelInMulti > .MultiControls > p {
+  padding: 6px;
+}
+.SumoSelect > .optWrapper.multiple > .MultiControls > p {
+  display: inline-block;
+  cursor: pointer;
+  padding: 12px;
+  width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+}
+.SumoSelect > .optWrapper.multiple > .MultiControls > p:hover {
+  background-color: #f1f1f1;
+}
+.SumoSelect > .optWrapper.multiple > .MultiControls > p.btnOk {
+  border-right: 1px solid #DBDBDB;
+  border-radius: 0 0 0 3px;
+}
+.SumoSelect > .optWrapper.multiple > .MultiControls > p.btnCancel {
+  border-radius: 0 0 3px 0;
+}
+/*styling for select on popup mode*/
+.SumoSelect > .optWrapper.isFloating > .options li.opt {
+  padding: 12px 6px;
+}
+/*styling for only multiple select on popup mode*/
+.SumoSelect > .optWrapper.multiple.isFloating > .options li.opt {
+  padding-left: 35px;
+}
+.SumoSelect > .optWrapper.multiple.isFloating {
+  padding-bottom: 43px;
+}
+.SumoSelect > .optWrapper.multiple > .options li.opt.selected span i,
+.SumoSelect .select-all.selected > span i,
+.SumoSelect .select-all.partial > span i {
+  background-color: #11a911;
+  box-shadow: none;
+  border-color: transparent;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAYAAAD+Bd/7AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAABMSURBVAiZfc0xDkAAFIPhd2Kr1WRjcAExuIgzGUTIZ/AkImjSofnbNBAfHvzAHjOKNzhiQ42IDFXCDivaaxAJd0xYshT3QqBxqnxeHvhunpu23xnmAAAAAElFTkSuQmCC');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+/*disabled state*/
+.SumoSelect.disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.SumoSelect.disabled > .CaptionCont {
+  border-color: #ccc;
+  box-shadow: none;
+}
+/**Select all button**/
+.SumoSelect .select-all {
+  border-radius: 3px 3px 0 0;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  padding: 8px 0 3px 35px;
+  height: 20px;
+  cursor: pointer;
+}
+.SumoSelect .select-all > label,
+.SumoSelect .select-all > span i {
+  cursor: pointer;
+}
+.SumoSelect .select-all.partial > span i {
+  background-color: #ccc;
+}
+/*styling for optgroups*/
+.SumoSelect > .optWrapper > .options li.optGroup {
+  padding-left: 5px;
+  text-decoration: underline;
+}
+.form-V3 {
+  position: relative;
+}
+.form-V3 .progress,
+.form-V3 .mask {
+  display: none;
+}
+.form-V3.isPosting .progress,
+.form-V3.isPosting .mask {
+  display: block;
+}
+.form-V3.isPosting .mask {
+  filter: alpha(opacity=40);
+  -moz-opacity: 0.4;
+  -khtml-opacity: 0.4;
+  opacity: 0.4;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #efefef;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.form-V3.isPosting .progress {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  -webkit-transform: perspective(1px) translateY(-50%);
+  -ms-transform: perspective(1px) translateY(-50%);
+  transform: perspective(1px) translateY(-50%);
+}
+.form-V3.isPosting .progress > span {
+  display: block;
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 8px solid #fff;
+  border-top: 8px solid #00467f;
+  -webkit-border-top-left-radius: 50%;
+  -moz-border-radius-topleft: 50%;
+  border-top-left-radius: 50%;
+  -webkit-border-top-right-radius: 50%;
+  -moz-border-radius-topright: 50%;
+  border-top-right-radius: 50%;
+  -webkit-border-bottom-left-radius: 50%;
+  -moz-border-radius-bottomleft: 50%;
+  border-bottom-left-radius: 50%;
+  -webkit-border-bottom-right-radius: 50%;
+  -moz-border-radius-bottomright: 50%;
+  border-bottom-right-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(51,51,51,0.8),inset 0px 0px 5px 0px rgba(51,51,51,0.5);
+  -moz-box-shadow: 0px 0px 12px 0px rgba(51,51,51,0.8),inset 0px 0px 5px 0px rgba(51,51,51,0.5);
+  box-shadow: 0px 0px 12px 0px rgba(51,51,51,0.8),inset 0px 0px 5px 0px rgba(51,51,51,0.5);
+  -moz-animation: spin 1s linear infinite;
+  -o-animation: spin 1s linear infinite;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+.form-V3 .label,
+.form-V3 .rangeDivider {
+  font-size: 90%;
+  color: #00467f;
+}
+.form-V3 .label {
+  padding-right: 5px;
+  white-space: nowrap;
+}
+.form-V3 .rangeDivider {
+  text-align: center;
+}
+.form-V3 .field {
+  clear: none;
+  padding: 5px 2px 0 2px;
+  overflow: visible;
+}
+.form-V3 .field input[type="text"],
+.form-V3 .field input[type="email"],
+.form-V3 .field input[type="password"],
+.form-V3 .field input[type="checkbox"],
+.form-V3 .field select,
+.form-V3 .field input.autoCompleteBase,
+.form-V3 .field.autoCompleteSearch > .autoCompleteSelectedItemLabel {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-color: transparent;
+}
+.form-V3 .field input[type="text"]:focus,
+.form-V3 .field input[type="email"]:focus,
+.form-V3 .field input[type="password"]:focus,
+.form-V3 .field input[type="checkbox"]:focus,
+.form-V3 .field select:focus,
+.form-V3 .field input.autoCompleteBase:focus,
+.form-V3 .field.autoCompleteSearch > .autoCompleteSelectedItemLabel:focus {
+  outline: none;
+}
+.form-V3 .field input[type="text"],
+.form-V3 .field input[type="email"],
+.form-V3 .field input[type="password"],
+.form-V3 .field input.autoCompleteBase,
+.form-V3 .field.autoCompleteSearch > .autoCompleteSelectedItemLabel,
+.form-V3 .field select,
+.form-V3 .field .SelectBox,
+.form-V3 .field ul.token-input-list-V3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 100%;
+  line-height: 1.5em;
+  color: #666;
+  padding: 8px 4px 5px 4px;
+  width: 100%;
+}
+.form-V3 .field input[type="checkbox"] {
+  width: 14px;
+  min-width: 14px;
+  height: 14px;
+  min-height: 14px;
+  margin-top: 2px;
+}
+.form-V3 .field > input[type="button"],
+.form-V3 .field input[type="submit"] {
+  color: #FFF;
+  font-family: Aaux Bold;
+  position: absolute;
+  top: 6px;
+  right: 3px;
+  bottom: 3px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  border: 0;
+  text-transform: uppercase;
+  background-color: #00467f;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#0292d0), to(#00467f));
+  background-image: -webkit-linear-gradient(top, #0292d0, #00467f);
+  background-image: -moz-linear-gradient(top, #0292d0, #00467f);
+  background-image: -ms-linear-gradient(top, #0292d0, #00467f);
+  background-image: -o-linear-gradient(top, #0292d0, #00467f);
+  -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+.form-V3 .field input[type="text"],
+.form-V3 .field input[type="email"],
+.form-V3 .field input[type="password"],
+.form-V3 .field input[type="checkbox"],
+.form-V3 .field input.autoCompleteBase,
+.form-V3 .field.autoCompleteSearch > .autoCompleteSelectedItemLabel,
+.form-V3 .field .selectList,
+.form-V3 .field .SelectBox,
+.form-V3 .field .optWrapper,
+.form-V3 .field ul.token-input-list-V3 {
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-left-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -moz-border-radius-topright: 0;
+  border-top-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  border-bottom-left-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  border-bottom-right-radius: 0;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: solid 1px #cfcfcf;
+  overflow: hidden;
+  background-color: #fff;
+  line-height: 1.2em;
+}
+.form-V3 .field input[type="text"]:hover,
+.form-V3 .field input[type="email"]:hover,
+.form-V3 .field input[type="password"]:hover,
+.form-V3 .field input[type="checkbox"]:hover,
+.form-V3 .field input.autoCompleteBase:hover,
+.form-V3 .field.autoCompleteSearch > .autoCompleteSelectedItemLabel:hover,
+.form-V3 .field .selectList:hover,
+.form-V3 .field .SelectBox:hover,
+.form-V3 .field .optWrapper:hover,
+.form-V3 .field ul.token-input-list-V3:hover {
+  /*border-color:@colorPrimary1;*/
+  -webkit-box-shadow: 0px 0px 7px 0px #00467f;
+  -moz-box-shadow: 0px 0px 7px 0px #00467f;
+  box-shadow: 0px 0px 7px 0px #00467f;
+}
+.form-V3 .field .selectList select {
+  padding-left: 2px;
+  padding-top: 8px;
+  padding-bottom: 5px;
+}
+.form-V3 .field.sumoSelectList .SumoSelect {
+  width: 100%;
+  display: block;
+}
+.form-V3 .field.sumoSelectList .SumoSelect:focus > .CaptionCont,
+.form-V3 .field.sumoSelectList .SumoSelect:hover > .CaptionCont,
+.form-V3 .field.sumoSelectList .SumoSelect.open > .CaptionCont,
+.form-V3 .field.sumoSelectList .SumoSelect.open > .optWrapper {
+  /*border-color:@colorPrimary1;*/
+  -webkit-box-shadow: 0px 0px 7px 0px #00467f;
+  -moz-box-shadow: 0px 0px 7px 0px #00467f;
+  box-shadow: 0px 0px 7px 0px #00467f;
+}
+.form-V3 .field.sumoSelectList .SumoSelect .SelectBox span {
+  font-style: normal;
+}
+.form-V3 .field.sumoSelectList .SumoSelect .SelectBox label {
+  color: #00467f;
+}
+.form-V3 .field.sumoSelectList .SumoSelect .SelectBox label i {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTAgNiI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogbm9uZTsKICAgICAgICBzdHJva2U6ICMyMzNlNmE7CiAgICAgICAgc3Ryb2tlLXdpZHRoOiAxcHg7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBpZD0iYXJyb3ciIGNsYXNzPSJjbHMtMSIgZD0iTTQxOTYuNjgsODUxbDMuODIsMy42MzEsMy44MS0zLjYzMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQxOTUuNSAtODUwLjUpIi8+Cjwvc3ZnPgo=");
+}
+.form-V3 .field.sumoSelectList .SumoSelect .optWrapper:not(.up) {
+  top: 37px;
+}
+.form-V3 .field.sumoSelectList .SumoSelect .optWrapper.up {
+  margin-bottom: 5px;
+}
+.form-V3 .field.sumoSelectList .SumoSelect .optWrapper .options {
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-left-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -moz-border-radius-topright: 0;
+  border-top-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  border-bottom-left-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  border-bottom-right-radius: 0;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  padding-top: 3px;
+}
+.form-V3 .field.sumoSelectList .SumoSelect .optWrapper .options li.opt {
+  color: #666;
+  font-size: 90%;
+  border-width: 0;
+  margin: 3px 10px 2px 10px;
+}
+.form-V3 .field.sumoSelectList .SumoSelect .optWrapper .options li.opt:hover {
+  background-color: #FFF;
+  color: #00467f;
+}
+.form-V3 .field.sumoSelectList .SumoSelect .optWrapper .options li.opt.selected span i {
+  background-color: #00467f;
+  border: 0;
+}
+.form-V3 .field.sumoSelectList .SumoSelect .optWrapper.multiple .options li.opt span i {
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-left-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -moz-border-radius-topright: 0;
+  border-top-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  border-bottom-left-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  border-bottom-right-radius: 0;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  box-shadow: none;
+}
+.form-V3 .field.sumoSelectList.sumoNoOptions {
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+}
+.form-V3 .field.sumoSelectList.sumoNoOptions .SumoSelect:focus > .CaptionCont,
+.form-V3 .field.sumoSelectList.sumoNoOptions .SumoSelect:hover > .CaptionCont,
+.form-V3 .field.sumoSelectList.sumoNoOptions .SumoSelect.open > .CaptionCont,
+.form-V3 .field.sumoSelectList.sumoNoOptions .SumoSelect.open > .optWrapper {
+  border-color: #cfcfcf;
+  -webkit-box-shadow: 0px 0px 0px 0px;
+  -moz-box-shadow: 0px 0px 0px 0px;
+  box-shadow: 0px 0px 0px 0px;
+}
+.form-V3 .field.sumoSelectList.sumoNoOptions .SumoSelect .optWrapper {
+  display: none;
+}
+.form-V3 .field.autoComplete ul.token-input-list-V3 {
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  cursor: text;
+  z-index: 999;
+  position: relative;
+}
+.form-V3 .field.autoComplete ul.token-input-list-V3 li.placeholder {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: red;
+}
+.form-V3 .field.autoComplete ul.token-input-list-V3 li.token-input-input-token-V3 {
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.form-V3 .field.autoComplete ul.token-input-list-V3 li.token-input-input-token-V3 input[type="text"] {
+  border-width: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  margin: 8px 0 5px 0;
+  padding-bottom: 8px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.form-V3 .field.autoComplete ul.token-input-list-V3 li.token-input-token-V3 {
+  overflow: hidden;
+  margin: 3px;
+  padding: 4px 22px 3px 8px;
+  cursor: default;
+  font-size: 13px;
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  border-top-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-left-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-bottom-right-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  float: left;
+  white-space: nowrap;
+  border-width: 0px;
+  background-color: #00467f;
+  color: #FFF;
+  position: relative;
+}
+.form-V3 .field.autoComplete ul.token-input-list-V3 li.token-input-token-V3:first-child {
+  margin-left: 0;
+}
+.form-V3 .field.autoComplete ul.token-input-list-V3 li.token-input-token-V3 p {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+.form-V3 .field.autoComplete ul.token-input-list-V3 li.token-input-token-V3 span {
+  position: absolute;
+  right: 6px;
+  top: 4px;
+  cursor: pointer;
+  font-size: 22px;
+}
+.form-V3 .field .selectList {
+  background-color: #FFF;
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTAgNiI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogbm9uZTsKICAgICAgICBzdHJva2U6ICMyMzNlNmE7CiAgICAgICAgc3Ryb2tlLXdpZHRoOiAxcHg7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBpZD0iYXJyb3ciIGNsYXNzPSJjbHMtMSIgZD0iTTQxOTYuNjgsODUxbDMuODIsMy42MzEsMy44MS0zLjYzMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQxOTUuNSAtODUwLjUpIi8+Cjwvc3ZnPgo=");
+  background-position-x: calc(100% - 10px);
+  background-position-x: -moz-calc(100% - 10px);
+  background-position-x: -webkit-calc(100% - 10px);
+  background-position-x: -o-calc(100% - 10px);
+  padding-right: 20px;
+}
+.form-V3 .field .selectList select {
+  cursor: pointer;
+  width: 130%;
+  width: calc(100% + 50px);
+  width: -moz-calc(100% + 50px);
+  width: -webkit-calc(100% + 50px);
+  width: -o-calc(100% + 50px);
+}
+.form-V3 .field .selectList.disabled {
+  background-image: none;
+}
+.form-V3 .field .selectList.disabled:hover {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.form-V3 .field .selectList.disabled select {
+  cursor: auto;
+  color: #CCC;
+}
+.form-V3 .field.checkbox {
+  *zoom: 1;
+}
+.form-V3 .field.checkbox:before,
+.form-V3 .field.checkbox:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.form-V3 .field.checkbox:after {
+  clear: both;
+}
+.form-V3 .field.checkbox input[type="checkbox"] {
+  float: left;
+  background-color: #FFF;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.form-V3 .field.checkbox input[type="checkbox"]:checked {
+  border-width: 0;
+  background-color: #00467f;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAYAAAD+Bd/7AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAABMSURBVAiZfc0xDkAAFIPhd2Kr1WRjcAExuIgzGUTIZ/AkImjSofnbNBAfHvzAHjOKNzhiQ42IDFXCDivaaxAJd0xYshT3QqBxqnxeHvhunpu23xnmAAAAAElFTkSuQmCC');
+}
+.form-V3 .field.checkbox .label {
+  float: left;
+  margin-left: 5px;
+  white-space: normal;
+}
+.form-V3 .field.small {
+  font-size: 80%;
+}
+.form-V3 .field ::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-size: 100%;
+  color: #CCC;
+}
+.form-V3 .field ::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 100%;
+  color: #CCC;
+}
+.form-V3 .field :-ms-input-placeholder {
+  /* IE 10+ */
+  font-size: 100%;
+  color: #CCC;
+}
+.form-V3 .field :-moz-placeholder {
+  /* Firefox 18- */
+  font-size: 100%;
+  color: #CCC;
+}
+.form-V3 .col .field {
+  padding-bottom: 6px;
+}
+.form-V3 .form-field-height {
+  height: 42px;
+  line-height: 42px;
+}
+.form-V3 .field-validation-error {
+  color: #ff0000;
+}
+.form-V3 .field-validation-valid {
+  display: none;
+}
+.form-V3 .field input.input-validation-error,
+.form-V3 .field .selectList.input-validation-error,
+.form-V3 .field .autoCompleteSelectedItemLabel.input-validation-error {
+  border-color: red;
+  -webkit-box-shadow: 0px 0px 7px 0px #ff0000;
+  -moz-box-shadow: 0px 0px 7px 0px #ff0000;
+  box-shadow: 0px 0px 7px 0px #ff0000;
+}
+.form-V3 .field.input-validation-error input {
+  border-color: red;
+  -webkit-box-shadow: 0px 0px 7px 0px #ff0000;
+  -moz-box-shadow: 0px 0px 7px 0px #ff0000;
+  box-shadow: 0px 0px 7px 0px #ff0000;
+}
+.form-V3 .field.autoCompleteSearch.searching .autoCompleteSelectedItemLabel.input-validation-error {
+  border-color: #00467f;
+  -webkit-box-shadow: 0px 0px 0px 0px;
+  -moz-box-shadow: 0px 0px 0px 0px;
+  box-shadow: 0px 0px 0px 0px;
+}
+.form-V3 .validation-summary-errors {
+  color: red;
+  font-size: 80%;
+  padding-bottom: 20px;
+}
+.form-V3 .validation-summary-valid {
+  display: none;
+}
+#centeredPageContentWrapper .form.isPosting .mask {
+  background-color: #FFF;
+}
+div.token-input-dropdown-V3 {
+  z-index: 101;
+  overflow: auto;
+  border: solid 1px #cfcfcf;
+  overflow: hidden;
+  background-color: #fff;
+  line-height: 1.2em;
+  -webkit-box-shadow: 0px 0px 7px 0px #00467f;
+  -moz-box-shadow: 0px 0px 7px 0px #00467f;
+  box-shadow: 0px 0px 7px 0px #00467f;
+  width: 100%;
+  padding-top: 3px;
+  max-height: 250px;
+  overflow-y: scroll;
+  margin-top: -291px;
+}
+div.token-input-dropdown-V3 ul li {
+  cursor: pointer;
+  border-bottom: none;
+  font-size: 90%;
+  padding: 6px;
+  margin: 3px 10px 2px 10px;
+  color: #666;
+}
+div.token-input-dropdown-V3 ul li.token-input-selected-dropdown-item-V3,
+div.token-input-dropdown-V3 ul li:hover {
+  background-color: #FFF;
+  color: #00467f;
+}
+div.token-input-dropdown-V3 ul li b {
+  display: inline-block;
+  background-color: #6dd2fe;
+  padding: 0 3px;
+}
