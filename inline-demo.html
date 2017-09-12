@@ -160,6 +160,24 @@
         padding: 10px 15px;
         margin-top: 20px;
         border-top: 1px solid #ddd;
+        position: relative;
+      }
+
+      .write-review {
+        width: 100px;
+        position: absolute;
+          left: 50%;
+            margin-left: -50px;
+            text-align: center;
+              text-decoration: none;
+                color: #333;
+                  opacity: 0.5;
+                    font-weight: 500;
+                    transition: opacity 200ms ease;
+      }
+
+      .write-review:hover {
+          opacity: 1;
       }
       
       @keyframes fadeInUp {
@@ -407,6 +425,7 @@
           <div class="sk-circle12 sk-circle"></div>
          </div>
       </a>
+      <a href="https://www.innovareviews.com/review/bc7rkcbb" target="_blank" class="write-review">Write a review</a>
       <p>{{ visible }} of {{ reviews.length }}</p>
     </footer>
   </template>
